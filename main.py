@@ -1,5 +1,6 @@
 import pygame
 from constants import *
+from player import *
 
 def main():
     # Initialize pygame
@@ -16,11 +17,15 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     black = (0, 0, 0) # the color black for screen fill
 
+    # spawn the player ship before the game loop
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-        screen.fill(color=black)
+        screen.fill(black)
+        player.draw(screen)
         pygame.display.flip()
         dt = clock.tick(60) / 1000
 
