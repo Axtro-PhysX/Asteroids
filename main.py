@@ -48,7 +48,7 @@ def main():
             for shot in shots:
                 if obj.collision(shot):
                     shot.kill()
-                    obj.kill()
+                    obj.split()
         for sprite in drawable:
             sprite.draw(screen)
         pygame.display.flip()
